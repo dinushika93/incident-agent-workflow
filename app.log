@@ -1,0 +1,1381 @@
+2026-07-24 09:32:15,840 [INFO] Worker loop started successfully. Waiting for messages...
+2026-07-24 09:32:15,841 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '80a72254-86ff-11f1-bbc1-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:32:37,766 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '8db89bb5-86ff-11f1-8276-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:33:04,593 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '9db5f8e4-86ff-11f1-a413-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:33:47,338 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'b7306004-86ff-11f1-bb25-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:33:49,396 [ERROR] Unexpected worker exception occurred in loop execution context
+Traceback (most recent call last):
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohttp\connector.py", line 1301, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 124, in start_connection
+    raise first_exception
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Dinu\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Dinu\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+ConnectionRefusedError: [WinError 1225] The remote computer refused the network connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\transport\_aiohttp.py", line 352, in send
+    result = await self.session.request(  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohttp\client.py", line 856, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohttp\client.py", line 810, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohttp\connector.py", line 657, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohttp\connector.py", line 1242, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohttp\connector.py", line 1620, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohttp\connector.py", line 1589, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\aiohttp\connector.py", line 1324, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:10001 ssl:default [The remote computer refused the network connection]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\worker.py", line 85, in main
+    async for message in messages:
+    ...<25 lines>...
+            await queue_client.delete_message(message)
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\async_paging.py", line 142, in __anext__
+    return await self.__anext__()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\async_paging.py", line 145, in __anext__
+    self._page = await self._page_iterator.__anext__()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\async_paging.py", line 94, in __anext__
+    self._response = await self._get_next(self.continuation_token)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\storage\queue\aio\_models.py", line 62, in _get_next_cb
+    return await self._command(number_of_messages=self.results_per_page)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\tracing\decorator_async.py", line 119, in wrapper_use_tracer
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\storage\queue\_generated\aio\operations\_messages_operations.py", line 119, in dequeue
+    pipeline_response: PipelineResponse = await self._client._pipeline.run(  # pylint: disable=protected-access
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _request, stream=_stream, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 229, in run
+    return await first_node.send(pipeline_request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 2 more times]
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\policies\_redirect_async.py", line 76, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\storage\queue\_shared\policies_async.py", line 163, in send
+    raise err
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\storage\queue\_shared\policies_async.py", line 133, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 1 more time]
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\storage\queue\_shared\policies_async.py", line 85, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 77, in send
+    response = await self.next.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\_base_async.py", line 111, in send
+    await self._sender.send(request.http_request, **request.context.options),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dinu\source\repos\Python\agent-workflow\.venv\Lib\site-packages\azure\core\pipeline\transport\_aiohttp.py", line 399, in send
+    raise ServiceRequestError(err, error=err) from err
+azure.core.exceptions.ServiceRequestError: Cannot connect to host 127.0.0.1:10001 ssl:default [The remote computer refused the network connection]
+2026-07-24 09:33:50,425 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'b9077458-86ff-11f1-a6d2-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:12,526 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c633be94-86ff-11f1-88d6-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:12,554 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c633be94-86ff-11f1-88d6-9c2f9d87df2a'
+    'x-ms-request-id': '432f08d6-b688-494a-81d2-0a1c855cc571'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:12 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:34:12,554 [INFO] Received message dd0e8730-e985-4e36-aa65-8048913c817f with content: {"incident_id": "incident_123", "artifact_url": "app_log.log"}`
+2026-07-24 09:34:12,555 [ERROR] Error parsing the message format: Extra data: line 1 column 63 (char 62). Removing bad message payload...
+2026-07-24 09:34:12,557 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages/dd0e8730-e985-4e36-aa65-8048913c817f?popreceipt=REDACTED'
+Request method: 'DELETE'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c63863a9-86ff-11f1-9f84-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:12,567 [INFO] Response status: 204
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c63863a9-86ff-11f1-9f84-9c2f9d87df2a'
+    'x-ms-request-id': '775fe2d3-2208-4441-a904-7755a74c8962'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:12 GMT'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+2026-07-24 09:34:12,568 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c63a3b3f-86ff-11f1-af03-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:12,576 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c63a3b3f-86ff-11f1-af03-9c2f9d87df2a'
+    'x-ms-request-id': 'b9c11475-84cb-4ac5-8d16-717b2fdc04de'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:12 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:34:12,577 [INFO] Received message 9de40a37-f29a-40db-85b4-a6836698a098 with content: {"incident_id": "incident_123", "artifact_url": "app_log.log"}
+2026-07-24 09:34:12,579 [ERROR] Error parsing the message format: 1 validation error for IncidentMessage
+artifact_path
+  Field required [type=missing, input_value={'incident_id': 'incident...act_url': 'app_log.log'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing. Removing bad message payload...
+2026-07-24 09:34:12,580 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages/9de40a37-f29a-40db-85b4-a6836698a098?popreceipt=REDACTED'
+Request method: 'DELETE'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c63bf7bf-86ff-11f1-a0ef-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:12,584 [INFO] Response status: 204
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c63bf7bf-86ff-11f1-a0ef-9c2f9d87df2a'
+    'x-ms-request-id': '8945fbb9-2c02-40d7-a2c9-4a2a4546b826'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:12 GMT'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+2026-07-24 09:34:12,586 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c63ce151-86ff-11f1-b140-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:12,593 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c63ce151-86ff-11f1-b140-9c2f9d87df2a'
+    'x-ms-request-id': '2aa1c6b2-4488-44c3-b0c9-8dab9cd5fba6'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:12 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:34:12,593 [INFO] No message found. Polling the queue again in 1 seconds...
+2026-07-24 09:34:13,600 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c6d7657c-86ff-11f1-a204-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:13,611 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c6d7657c-86ff-11f1-a204-9c2f9d87df2a'
+    'x-ms-request-id': '76d5c55b-ec87-4e3d-80e2-0d896d35dfbe'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:13 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:34:13,612 [INFO] No message found. Polling the queue again in 2 seconds...
+2026-07-24 09:34:15,616 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c80b53ea-86ff-11f1-8a50-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:15,627 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c80b53ea-86ff-11f1-8a50-9c2f9d87df2a'
+    'x-ms-request-id': '7fca8786-d9f4-464d-9135-bd9c468b6545'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:34:15,627 [INFO] No message found. Polling the queue again in 4 seconds...
+2026-07-24 09:34:19,635 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'ca7072f4-86ff-11f1-bbe5-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:19,645 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'ca7072f4-86ff-11f1-bbe5-9c2f9d87df2a'
+    'x-ms-request-id': '2d136bbc-e5c0-4029-999c-624762af1b08'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:19 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:34:19,647 [INFO] No message found. Polling the queue again in 8 seconds...
+2026-07-24 09:34:27,655 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'cf384f24-86ff-11f1-9a83-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:27,668 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'cf384f24-86ff-11f1-9a83-9c2f9d87df2a'
+    'x-ms-request-id': '0f41995b-953e-4cd9-976c-5bc7ca4a0adb'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:27 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:34:27,668 [INFO] No message found. Polling the queue again in 16 seconds...
+2026-07-24 09:34:43,681 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'd8c59b6a-86ff-11f1-b590-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:34:43,690 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'd8c59b6a-86ff-11f1-b590-9c2f9d87df2a'
+    'x-ms-request-id': '80d75221-b0ca-4325-99ff-3b11d9dd6c00'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:34:43 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:34:43,690 [INFO] No message found. Polling the queue again in 32 seconds...
+2026-07-24 09:35:15,698 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'ebdb1885-86ff-11f1-a025-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:35:15,705 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'ebdb1885-86ff-11f1-a025-9c2f9d87df2a'
+    'x-ms-request-id': '4d02ae89-d254-42b7-b7fc-cc2c6957362d'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:35:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:35:15,705 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:36:15,716 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '0fa12683-8700-11f1-a242-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:36:15,725 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '0fa12683-8700-11f1-a242-9c2f9d87df2a'
+    'x-ms-request-id': '2469a1ef-9f98-4bbb-8a99-ca61aee48296'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:36:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:36:15,726 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:37:15,730 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '33666963-8700-11f1-b870-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:37:15,743 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '33666963-8700-11f1-b870-9c2f9d87df2a'
+    'x-ms-request-id': 'adc22501-2b75-4500-ba78-89ff7be43817'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:37:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:37:15,743 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:38:15,754 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '572d6c03-8700-11f1-933f-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:38:15,768 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '572d6c03-8700-11f1-933f-9c2f9d87df2a'
+    'x-ms-request-id': 'b990f7f0-6424-4537-baca-73269b2a524d'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:38:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:38:15,769 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:39:15,786 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '7af5978c-8700-11f1-aff6-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:39:15,800 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '7af5978c-8700-11f1-aff6-9c2f9d87df2a'
+    'x-ms-request-id': '855a8fca-28f7-4cba-89d4-38d5c6ed65ba'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:39:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:39:15,801 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:40:15,806 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '9ebbd3cf-8700-11f1-9798-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:40:15,822 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '9ebbd3cf-8700-11f1-9798-9c2f9d87df2a'
+    'x-ms-request-id': '47a0a5aa-63ab-49d4-b16d-b32f8ac4674b'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:40:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:40:15,823 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:41:15,826 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c28229c6-8700-11f1-be3d-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:41:15,838 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c28229c6-8700-11f1-be3d-9c2f9d87df2a'
+    'x-ms-request-id': 'e35c7de8-85c4-40c0-a2c4-bfd4a0d97378'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:41:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:41:15,839 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:42:15,853 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'e6498eb2-8700-11f1-8a32-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:42:15,874 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'e6498eb2-8700-11f1-8a32-9c2f9d87df2a'
+    'x-ms-request-id': '56f2274e-4ca8-4bdf-88da-3e38098cb532'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:42:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:42:15,875 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:43:15,877 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '0a108a8c-8701-11f1-8526-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:43:15,892 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '0a108a8c-8701-11f1-8526-9c2f9d87df2a'
+    'x-ms-request-id': '7ddb1aa7-f087-464d-a2fa-dbb2360311e1'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:43:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:43:15,893 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:44:15,911 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '2dd8f4a7-8701-11f1-b102-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:44:15,926 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '2dd8f4a7-8701-11f1-b102-9c2f9d87df2a'
+    'x-ms-request-id': '7fec9d21-83f9-46b1-9c37-e7e21ce67abf'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:44:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:44:15,926 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:45:15,941 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '51a0cbf3-8701-11f1-9109-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:45:15,950 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '51a0cbf3-8701-11f1-9109-9c2f9d87df2a'
+    'x-ms-request-id': '0ee22da6-0eac-48e3-8438-84e439f87b58'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:45:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:45:15,951 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:46:15,961 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '75671f41-8701-11f1-bd88-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:46:15,971 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '75671f41-8701-11f1-bd88-9c2f9d87df2a'
+    'x-ms-request-id': '7d179cda-dec9-4fde-8e14-a906aa066bd8'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:46:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:46:15,972 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:47:15,983 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '992ddf57-8701-11f1-b453-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:47:15,992 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '992ddf57-8701-11f1-b453-9c2f9d87df2a'
+    'x-ms-request-id': 'c47b7ba7-1a37-4769-b3cd-71722d7abac4'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:47:15 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:47:15,993 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:48:16,001 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'bcf3e67e-8701-11f1-9eb1-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:48:16,009 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'bcf3e67e-8701-11f1-9eb1-9c2f9d87df2a'
+    'x-ms-request-id': 'fac31331-d87e-400a-b11f-79a22cee8492'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:48:16 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:48:16,010 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:49:16,025 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'e0baca95-8701-11f1-bbe0-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:49:16,033 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'e0baca95-8701-11f1-bbe0-9c2f9d87df2a'
+    'x-ms-request-id': 'c303598c-c07a-4c68-b0a1-a1071def0ef4'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:49:16 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:49:16,034 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:55:51,247 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'cc4ce050-8702-11f1-a43d-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:55:51,255 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'cc4ce050-8702-11f1-a43d-9c2f9d87df2a'
+    'x-ms-request-id': 'c1c3d206-280c-4a29-b571-427b837505d8'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:55:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:55:51,255 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:56:51,272 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'f013e647-8702-11f1-ba38-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:56:51,281 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'f013e647-8702-11f1-ba38-9c2f9d87df2a'
+    'x-ms-request-id': '2e11a366-705d-410f-9712-4be71d9b35e3'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:56:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:56:51,282 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:57:51,288 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '13d9a502-8703-11f1-9fdc-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:57:51,298 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '13d9a502-8703-11f1-9fdc-9c2f9d87df2a'
+    'x-ms-request-id': 'c8e8abac-96d6-4aa8-9472-723ec2f41527'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:57:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:57:51,299 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:58:51,303 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '379f3c75-8703-11f1-afd9-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:58:51,322 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '379f3c75-8703-11f1-afd9-9c2f9d87df2a'
+    'x-ms-request-id': 'ccb2d31e-332f-4754-a9e2-97c334f00cd7'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:58:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:58:51,322 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 09:59:51,339 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '5b67f3b7-8703-11f1-aa83-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 09:59:51,354 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '5b67f3b7-8703-11f1-aa83-9c2f9d87df2a'
+    'x-ms-request-id': '68bee57f-d6b8-4ced-9b00-574377c7b19e'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 01:59:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 09:59:51,355 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:00:51,357 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '7f2e0f98-8703-11f1-87d5-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:00:51,366 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '7f2e0f98-8703-11f1-87d5-9c2f9d87df2a'
+    'x-ms-request-id': 'c22b6faf-fb29-4752-aa37-e30e2c1a28f4'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:00:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:00:51,366 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:01:51,370 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'a2f33189-8703-11f1-9825-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:01:51,385 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'a2f33189-8703-11f1-9825-9c2f9d87df2a'
+    'x-ms-request-id': '1de37aac-765c-451d-a11d-945fe2bcfca8'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:01:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:01:51,386 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:02:51,390 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'c6b98979-8703-11f1-a465-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:02:51,405 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'c6b98979-8703-11f1-a465-9c2f9d87df2a'
+    'x-ms-request-id': '56cd2dc4-bf19-414f-8dcc-0ac07fa75944'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:02:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:02:51,406 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:03:51,414 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'ea8087dd-8703-11f1-819a-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:03:51,422 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'ea8087dd-8703-11f1-819a-9c2f9d87df2a'
+    'x-ms-request-id': 'ff058468-4e6b-4d73-a6c1-bc5d20b4d682'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:03:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:03:51,422 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:04:51,437 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '0e473bbc-8704-11f1-a474-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:04:51,448 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '0e473bbc-8704-11f1-a474-9c2f9d87df2a'
+    'x-ms-request-id': '77e03283-6a33-45cf-816a-cd44ea992e8d'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:04:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:04:51,449 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:05:51,453 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '320cecb2-8704-11f1-af14-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:05:51,466 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '320cecb2-8704-11f1-af14-9c2f9d87df2a'
+    'x-ms-request-id': '46c07115-d2f1-4832-88a9-47558d9beee3'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:05:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:05:51,467 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:06:51,479 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '55d43c0d-8704-11f1-9e49-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:06:51,495 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '55d43c0d-8704-11f1-9e49-9c2f9d87df2a'
+    'x-ms-request-id': '772a34ea-1ee4-4d0d-9396-b62455c836b9'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:06:51 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:06:51,496 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:22:04,899 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '76452838-8706-11f1-93bd-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:22:04,907 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '76452838-8706-11f1-93bd-9c2f9d87df2a'
+    'x-ms-request-id': 'f4c92eac-e60b-466a-8f54-06a7222be56a'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:22:04 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:22:04,908 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:23:04,915 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '9a0aca58-8706-11f1-8e9f-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:23:04,928 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '9a0aca58-8706-11f1-8e9f-9c2f9d87df2a'
+    'x-ms-request-id': '5e745a5f-f3e4-408e-befa-3c61e7ab6f28'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:23:04 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:23:04,929 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:24:04,934 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'bdd101a1-8706-11f1-add6-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:24:04,944 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'bdd101a1-8706-11f1-add6-9c2f9d87df2a'
+    'x-ms-request-id': 'a13ce4e1-6934-4b7f-918c-7d00d295bfbd'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:24:04 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:24:04,945 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:25:04,949 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'e196a6fa-8706-11f1-8e7a-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:25:04,958 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'e196a6fa-8706-11f1-8e7a-9c2f9d87df2a'
+    'x-ms-request-id': 'f5b0211c-ba01-4b84-8337-378a979bb4db'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:25:04 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:25:04,958 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:26:04,975 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '055dcd5d-8707-11f1-ac92-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:26:04,986 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '055dcd5d-8707-11f1-ac92-9c2f9d87df2a'
+    'x-ms-request-id': '1b5d8c2a-92ab-4c8d-98f2-2b32c8ccb0b3'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:26:04 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:26:04,987 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:27:04,999 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '2924bbeb-8707-11f1-bf64-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:27:05,010 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '2924bbeb-8707-11f1-bf64-9c2f9d87df2a'
+    'x-ms-request-id': '1a0146ee-32d9-40f2-80ed-a48a81ce1810'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:27:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:27:05,010 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:28:05,020 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '4ceb2cc6-8707-11f1-ba69-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:28:05,032 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '4ceb2cc6-8707-11f1-ba69-9c2f9d87df2a'
+    'x-ms-request-id': 'b8855dca-1104-49a3-b706-9b9a4783f47b'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:28:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:28:05,032 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:29:05,050 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '70b301cb-8707-11f1-995b-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:29:05,061 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '70b301cb-8707-11f1-995b-9c2f9d87df2a'
+    'x-ms-request-id': 'd419c94b-d46a-4199-943e-a30a6d22868c'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:29:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:29:05,062 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:30:05,073 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '9479eaff-8707-11f1-9b30-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:30:05,081 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '9479eaff-8707-11f1-9b30-9c2f9d87df2a'
+    'x-ms-request-id': 'e4700020-ae17-4588-8255-7da0e3de4a44'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:30:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:30:05,081 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:31:05,095 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'b8408b90-8707-11f1-8d03-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:31:05,104 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'b8408b90-8707-11f1-8d03-9c2f9d87df2a'
+    'x-ms-request-id': '3535cf95-f067-460d-a4d5-fe052d1fa97f'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:31:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:31:05,104 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:32:05,121 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'dc07b63e-8707-11f1-bd87-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:32:05,133 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'dc07b63e-8707-11f1-bd87-9c2f9d87df2a'
+    'x-ms-request-id': 'e44c46d0-354f-4a50-8639-b6883fb64698'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:32:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:32:05,134 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:33:05,148 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'ffcf1432-8707-11f1-8b53-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:33:05,162 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'ffcf1432-8707-11f1-8b53-9c2f9d87df2a'
+    'x-ms-request-id': '9dd814c2-cb7a-409b-8e67-9a95ab4d30bb'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:33:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:33:05,163 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:34:05,176 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '2396af1a-8708-11f1-bd43-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:34:05,188 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '2396af1a-8708-11f1-bd43-9c2f9d87df2a'
+    'x-ms-request-id': '5b408b8a-4071-4b05-93fb-bedee6a1e89f'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:34:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:34:05,188 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:35:05,206 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '475e88cc-8708-11f1-bd7e-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:35:05,224 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '475e88cc-8708-11f1-bd7e-9c2f9d87df2a'
+    'x-ms-request-id': '86f19512-3d58-43ea-8896-524511a788f4'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:35:05 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:35:05,224 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:39:47,524 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'efa4b776-8708-11f1-bf11-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:39:47,539 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': 'efa4b776-8708-11f1-bf11-9c2f9d87df2a'
+    'x-ms-request-id': '02f21edc-667d-48d5-b8d1-0e0cb2cb34b7'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:39:47 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:39:47,539 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:40:47,553 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '136c815b-8709-11f1-8bc5-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:40:47,568 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '136c815b-8709-11f1-8bc5-9c2f9d87df2a'
+    'x-ms-request-id': 'dfc575d1-85f2-40c1-9083-260ab9b32f5c'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:40:47 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:40:47,569 [INFO] No message found. Polling the queue again in 60 seconds...
+2026-07-24 10:41:47,582 [INFO] Request URL: 'http://127.0.0.1:10001/devstoreaccount1/incident-queue/messages?numofmessages=REDACTED&visibilitytimeout=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-queue/12.17.0 Python/3.14.5 (Windows-11-10.0.26200-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '37343181-8709-11f1-a002-9c2f9d87df2a'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-07-24 10:41:47,592 [INFO] Response status: 200
+Response headers:
+    'Server': 'Azurite-Queue/3.33.0'
+    'x-ms-client-request-id': '37343181-8709-11f1-a002-9c2f9d87df2a'
+    'x-ms-request-id': '7b8296a3-e6ea-45cc-b9c7-98236f78f8ec'
+    'x-ms-version': 'REDACTED'
+    'Date': 'Fri, 24 Jul 2026 02:41:47 GMT'
+    'Content-Type': 'application/xml'
+    'Connection': 'keep-alive'
+    'Keep-Alive': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+2026-07-24 10:41:47,593 [INFO] No message found. Polling the queue again in 60 seconds...

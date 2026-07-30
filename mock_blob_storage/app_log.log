@@ -1,0 +1,11 @@
+[2026-06-24 09:40:01.102] [INFO] [Thread-14] [InventoryService.Controllers] Ingesting batch request: POST /api/v1/inventory/cache/sync - Items count: 450
+[2026-06-24 09:41:15.420] [INFO] [Thread-19] [InventoryService.Security] Token validation successful for client identity: svc-order-processor-prod
+[2026-06-24 09:42:00.891] [WARN] [Thread-32] [StackExchange.Redis.ConnectionMultiplexer] Redis connection pool utilization warning: 88% capacity reached (44/50 active multiplexer sockets allocated).
+[2026-06-24 09:42:03.115] [WARN] [Thread-08] [StackExchange.Redis.ConnectionMultiplexer] Redis connection pool utilization warning: 98% capacity reached (49/50 active multiplexer sockets allocated).
+[2026-06-24 09:42:05.002] [FATAL] [Thread-41] [Company.Infrastructure.Cache.RedisProvider] SocketException: No connections were available to service this operation. Hard limit of 50 connections thoroughly exhausted. Connection pool saturation at 100%.
+[2026-06-24 09:42:05.005] [ERROR] [Thread-41] [Company.Services.InventoryService] RedisTimeoutException: Timeout performing EXISTS inventory:cache:items. (Threshold constraint limit of 250ms exceeded waiting for an open socket connection slot).
+  at StackExchange.Redis.ConnectionMultiplexer.ExecuteSyncImpl[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in C:\projects\redis\StackExchange.Redis\ConnectionMultiplexer.cs:line 1201
+  at Company.Infrastructure.Cache.RedisProvider.Exists(String key) in /src/Infrastructure/Cache/RedisProvider.cs:line 42
+  at Company.Services.InventoryService.GetStockCount(Guid itemId) in /src/Services/InventoryService.cs:line 108
+  at Company.Api.Controllers.InventoryController.CheckStock(Guid id) in /src/Api/Controllers/InventoryController.cs:line 29
+[2026-06-24 09:42:05.012] [ERROR] [Thread-11] [InventoryService.Middleware] GlobalExceptionHandler caught unhandled exception. Bubbling up HTTP Status Code 503 (Service Unavailable) to API Gateway caller.

@@ -1,0 +1,19 @@
+2026-07-22 19:40:02.114 ERROR [uvicorn.error] Exception in ASGI application
+Traceback (most recent call last):
+  File "/app/venv/lib/python3.11/site-packages/jpa_connector/pool.py", line 142, in get_connection
+    conn = self._pool.get(timeout=5.0)
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/routers/orders.py", line 88, in process_checkout
+    async with db.transaction() as session:
+  File "/app/database/session.py", line 45, in __aenter__
+    self.conn = await connection_pool.acquire(timeout=5.0)
+  File "/app/database/pool.py", line 210, in acquire
+    raise TimeoutError("Database connection pool exhausted. 50/50 connections active.")
+TimeoutError: Database connection pool exhausted. 50/50 connections active.
+
+2026-07-22 19:40:02.118 CRITICAL [app.database.monitor] Potential deadlock or connection leak detected in `app/routers/orders.py`.
+2026-07-22 19:40:02.120 CRITICAL [app.core.safety] AUTO-REMEDIATION ABORTED: Modifying DB pool size or connection logic carries high risk of cascading failure. MANUAL INTERVENTION REQUIRED.

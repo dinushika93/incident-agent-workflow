@@ -1,0 +1,1 @@
+{"incident_id": "incident_123", "action": "no_change", "reason": "No log content or error thresholds provided to compare against configuration; cannot safely alter settings.", "config_path": "in-memory"}
