@@ -11,6 +11,7 @@ from azure.storage.queue import BinaryBase64DecodePolicy, BinaryBase64EncodePoli
 
 # Agent requirements
 from app.agents import InputDependancies, agent
+from app.agents.agent import tools
 
 # Setup logging
 logging.basicConfig(
@@ -23,6 +24,7 @@ logger = logging.getLogger(__name__)
 FASTAPI_BASEURL = os.getenv("FASTAPI_URL")
 AZURE_STORAGE_CONNECTION_STRING = os.getenv("AZURE_STORAGE_CONNECTION_STRING", "")
 QUEUE_NAME = os.getenv("QUEUE_NAME", "")
+VISIBILITY_TIMEOUT = int(os.getenv("QUEUE_VISIBILITY_TIMEOUT", "300"))
 
 class IncidentMessage(BaseModel):
     incident_id: str
@@ -71,56 +73,69 @@ async def main():
     )
     current_backoff = MIN_BACKOFF
 
-    # 2. Managed context setup across both service connection and client
-    async with httpx.AsyncClient() as http_client, queue_client:
-        logger.info("Worker loop started successfully. Waiting for messages...")
-        
-        while True:
-            try:
-                # 💡 FIX: Added 'await' here so it evaluates the async pager stream
-                messages =  queue_client.receive_messages(max_messages=1, visibility_timeout=30)
-                
-                
-                has_messages = False
-                async for message in messages:
-                    has_messages = True
-                    current_backoff = MIN_BACKOFF # Reset backoff timer on successful read
-                    content = message.content
+    await tools.initialize()
+    try:
+        # Managed context setup across both service connection and client
+        async with httpx.AsyncClient(timeout=60.0) as http_client, queue_client:
+            logger.info("Worker loop started successfully. Waiting for messages...")
 
-                    logger.info(f"Received message {message.id} with content: {content}")
+            while True:
+                try:
+                # 💡 FIX: Added 'await' here so it evaluates the async pager stream
+                    messages = queue_client.receive_messages(
+                        max_messages=1,
+                        visibility_timeout=VISIBILITY_TIMEOUT,
+                    )
+                
+                
+                    has_messages = False
+                    async for message in messages:
+                        has_messages = True
+                        current_backoff = MIN_BACKOFF
+                        content = message.content
+
+                        logger.info("Received message %s", message.id)
                     
-                    try:
+                        try:
                         # --- Parse and Validate Payload ---
-                        if isinstance(content, bytes):
-                            content = content.decode('utf-8')
-                        payload = json.loads(content)
-                        incident = IncidentMessage(**payload)
+                            if isinstance(content, bytes):
+                                content = content.decode("utf-8")
+                            payload = json.loads(content)
+                            incident = IncidentMessage(**payload)
                         
                         # Process the structured object
-                        success = await process_message(http_client, incident)
+                            success = await process_message(http_client, incident)
                         
-                        if success:
-                            await queue_client.delete_message(message)
-                            logger.info(f"Deleted message {message.id} from queue.")
-                        else:
-                            logger.warning(f"Retrying incident {incident.incident_id} later (kept in queue).")
-                            
-                    except (json.JSONDecodeError, ValidationError) as parse_err:
+                            if success:
+                                await queue_client.delete_message(message)
+                                logger.info("Deleted message %s from queue.", message.id)
+                            else:
+                                logger.warning(
+                                    "Retrying incident %s later (message retained)",
+                                    incident.incident_id,
+                                )
+
+                        except (json.JSONDecodeError, UnicodeDecodeError, ValidationError) as parse_err:
                         # Poison message safeguard handling
-                        logger.error(f"Error parsing the message format: {parse_err}. Removing bad message payload...")
-                        await queue_client.delete_message(message)
+                            logger.error("Invalid queue message; deleting poison message: %s", parse_err)
+                            await queue_client.delete_message(message)
 
                 # --- Backoff Idling Strategy ---
-                if has_messages:
-                    current_backoff = MIN_BACKOFF
-                else:
-                    logger.info(f"No message found. Polling the queue again in {current_backoff} seconds...")
-                    await asyncio.sleep(current_backoff)
-                    current_backoff = min(current_backoff * BACKOFF_FACTOR, MAX_BACKOFF)
+                    if has_messages:
+                        current_backoff = MIN_BACKOFF
+                    else:
+                        logger.info("No message found; polling again in %s seconds", current_backoff)
+                        await asyncio.sleep(current_backoff)
+                        current_backoff = min(current_backoff * BACKOFF_FACTOR, MAX_BACKOFF)
 
-            except Exception:
-                logger.exception("Unexpected worker exception occurred in loop execution context")
-                await asyncio.sleep(MIN_BACKOFF)
+                except asyncio.CancelledError:
+                    logger.info("Worker cancellation requested")
+                    raise
+                except Exception:
+                    logger.exception("Unexpected worker exception in loop")
+                    await asyncio.sleep(MIN_BACKOFF)
+    finally:
+        await tools.close()
 
 if __name__ == "__main__":
     asyncio.run(main())
