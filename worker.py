@@ -4,10 +4,11 @@ import os
 import json
 import httpx
 from pydantic import BaseModel, ValidationError
+from dotenv import load_dotenv
 
 # Azure SDK Async namespaces
 from azure.storage.queue.aio import QueueClient
-from azure.storage.queue import BinaryBase64DecodePolicy, BinaryBase64EncodePolicy, TextBase64DecodePolicy
+from azure.storage.queue import BinaryBase64DecodePolicy
 
 # Agent requirements
 from app.agents import InputDependancies, agent
@@ -21,10 +22,15 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
+load_dotenv()
+
 FASTAPI_BASEURL = os.getenv("FASTAPI_URL")
 AZURE_STORAGE_CONNECTION_STRING = os.getenv("AZURE_STORAGE_CONNECTION_STRING", "")
 QUEUE_NAME = os.getenv("QUEUE_NAME", "")
 VISIBILITY_TIMEOUT = int(os.getenv("QUEUE_VISIBILITY_TIMEOUT", "300"))
+MIN_BACKOFF = int(os.getenv("QUEUE_MIN_BACKOFF", "1"))
+MAX_BACKOFF = int(os.getenv("QUEUE_MAX_BACKOFF", "60"))
+BACKOFF_FACTOR = int(os.getenv("QUEUE_BACKOFF_FACTOR", "2"))
 
 class IncidentMessage(BaseModel):
     incident_id: str
@@ -61,11 +67,6 @@ async def process_message(client: httpx.AsyncClient, message: IncidentMessage) -
         return False
 
 async def main():
-    MIN_BACKOFF = 1
-    MAX_BACKOFF = 60
-    BACKOFF_FACTOR = 2
-    
-    # 1. Initialize Async Service Client with Base64 decode rules
     queue_client = QueueClient.from_connection_string(
         conn_str = AZURE_STORAGE_CONNECTION_STRING,
         queue_name = QUEUE_NAME,
@@ -81,13 +82,11 @@ async def main():
 
             while True:
                 try:
-                # 💡 FIX: Added 'await' here so it evaluates the async pager stream
                     messages = queue_client.receive_messages(
                         max_messages=1,
                         visibility_timeout=VISIBILITY_TIMEOUT,
                     )
-                
-                
+                              
                     has_messages = False
                     async for message in messages:
                         has_messages = True
@@ -97,7 +96,7 @@ async def main():
                         logger.info("Received message %s", message.id)
                     
                         try:
-                        # --- Parse and Validate Payload ---
+                        # Parse and Validate Payload ---
                             if isinstance(content, bytes):
                                 content = content.decode("utf-8")
                             payload = json.loads(content)
@@ -120,7 +119,7 @@ async def main():
                             logger.error("Invalid queue message; deleting poison message: %s", parse_err)
                             await queue_client.delete_message(message)
 
-                # --- Backoff Idling Strategy ---
+                    # Backoff Idling Strategy
                     if has_messages:
                         current_backoff = MIN_BACKOFF
                     else:

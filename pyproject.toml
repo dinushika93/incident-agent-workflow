@@ -7,6 +7,7 @@ requires-python = ">=3.14"
 dependencies = [
     "aiohttp>=3.14.1",
     "azure-identity>=1.25.3",
+    "azure-storage-blob>=12.30.0",
     "azure-storage-queue>=12.17.0",
     "fastapi>=0.138.0",
     "fastapi-cli>=0.0.27",

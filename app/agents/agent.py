@@ -10,14 +10,11 @@ load_dotenv()
 class InputDependancies(BaseModel):
     incident_id: str
     system_config_path: str
-
-
 class Diagnosis(BaseModel):
     summary: str
     root_cause: str
 
 class PatchRemediation(BaseModel):
-    requires_patch: bool
     patch_summary: str|None = None
     patch_path: str|None = None
 
@@ -25,6 +22,7 @@ class OutPutResult(BaseModel):
     incident_id: str
     manual_intervention_needed: bool
     diagnosis: Diagnosis
+    requires_patch: bool
     patchRemediation : PatchRemediation
 
 tools = Tools()
@@ -37,23 +35,41 @@ agent = Agent(
 
 @agent.system_prompt
 async def build_system_prompt(ctx: RunContext[InputDependancies]):
-      incident_id = ctx.deps.incident_id
-      return f"""You are a system admin. Your task is to resolve an issue by analyzing the log content provided for incident {incident_id}.
+    return f"""
+        You are an autonomous Cloud Remediation Agent. Your job is to analyze log errors against system configurations, determine if an issue can be safely resolved via configuration adjustments, and handle patch submission or escalation.
+        Follow these execution steps sequentially:
+     
+       ###Execution Workflow
+    1. **Set the IncidentId**
+         - set the `incident_id` from the `{ctx.deps.incident_id}`. This will be used for all subsequent operations and outputs.
 
-      Follow the steps below:
-      1. Fetch the system configuration using the correct tool.
-      2. Read the configuration.
-      3. Compare the log errors against the system thresholds. Check whether you can resolve the issue by altering the configuration settings.
-      4. If you can resolve the issue:
-        - You do not need human support. Set 'requires_patch' to true and 'manual_intervention_needed' to false.
-        - Generate the patch changes and pass them as an object in the 'data' field to 'post_patch'.
-        - The application supplies the incident ID, filename, and creation timestamp. Do not generate those fields.
-        - Wait until you get a response from the tool. If the tool successfully returns a file path, record it in your final output.
-      5. You will need human support if any of the following scenarios occur (Set 'manual_intervention_needed' to true and provide a clear explanation for the human operator):
-          a. You could not fetch a valid system configuration.
-          b. You could not resolve the issue by altering any available configuration settings.
-          c. You did not get a valid successful response from the 'post_patch' tool execution.
-      """
+	2. **Fetch System Configuration**
+	   - Call the configuration tool to fetch the current system configuration.
+	   - If the configuration cannot be retrieved or is invalid:
+	     - Set `manual_intervention_needed = true` and `requires_patch = false`.
+	     - Output the reason for failure and halt the execution.
+
+
+	3. **Analyze & Compare**
+	   - Read the system configuration settings and thresholds.
+	   - Cross-reference log errors against the system configuration.
+	   - Evaluate whether altering available configuration settings can resolve the issue safely.
+
+	4. **Determine Resolution Path**
+
+	   * **Scenario A: Issue CAN be resolved via configuration change**
+	     - Set `manual_intervention_needed = false` and `requires_patch = true`.
+	     - Construct the proposed configuration patch object.
+	     - Call `post_patch` with the patch object passed into the `data` field. the 
+	     - **Tool Verification:** Wait for the `post_patch` tool response.
+	       - If `post_patch` succeeds and returns a valid file/blob path: Record the path in your final output response.
+	       - If `post_patch` fails or returns an invalid response: Fall back immediately to human escalation (Set `manual_intervention_needed = true` and explain the tool execution failure).
+
+	   * **Scenario B: Issue CANNOT be resolved via configuration change**
+	     - Set `manual_intervention_needed = true` and `requires_patch = false`.
+         - Do not call any Tool to generate a patch. Keep the `patchRemediation` fields as null.
+	     - In the OutPutResult, clearly detailing the root cause and the issue summary under the `diagnosis` field.
+	      """
 
 @agent.tool
 async def post_patch(ctx: RunContext[InputDependancies], patch: Patch) -> str|None:
